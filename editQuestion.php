@@ -26,4 +26,21 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         $fields[] ="QuestionTypeId = :questionTypeId";
         $params[':questionTypeId']=$questionTypeId;
     }
+
+    if(empty($fields)){
+
+        http_response_code(400);
+
+        echo json_encode(['error'=>'No fields provided for update']);
+        exit;
+    }
+    $query = "UPDATE Questions SET" . implode(", ",$fields) . "WHERE Id = :questionId";
+
+    try{
+        
+    }
+
+    catch(PDOException $e){
+
+    }
 }
