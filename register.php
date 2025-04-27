@@ -26,8 +26,8 @@ try{
         echo json_encode(["error  user already exits"]);
         exit;
     }
+   $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
 
-    
 }
 
 
