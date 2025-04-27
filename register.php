@@ -5,15 +5,15 @@ if($_SERVER['REQUEST_METHOD']==='POST')
 {
     // validate the user submitted all the required data
 
-    if(!isset($__POST['name'],$_POST['email'],$_POST['password']))
+    if(!isset($_POST['name'],$_POST['email'],$_POST['password']))
     {
         http_response_code(400);
-        echo json_encode(["error please enter all the required fields and try again"]);
+        echo json_encode(["error "=>"please enter all the required fields and try again"]);
         exit;
     }
 
     $name = $_POST['name'];
-    $email = $__POST['email'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
 try{
@@ -23,7 +23,7 @@ try{
 
     if($query->fetch(PDO::FETCH_ASSOC)){
         http_response_code(400);
-        echo json_encode(["error  user already exits"]);
+        echo json_encode(["error"=> " user already exits"]);
         exit;
     }
    $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
@@ -44,7 +44,7 @@ catch(PDOException $e){
     
     http_response_code(500);
 
-    echo json_encode(['error '=>'registration failed:'. $e->getMessage()])
+    echo json_encode(['error '=>'registration failed:'. $e->getMessage()]);
 }
 
 }
