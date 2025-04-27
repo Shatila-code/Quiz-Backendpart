@@ -47,9 +47,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 'quizId' => $pdo->lastInsertId()
             ]);
         } catch (PDOException $e) {
-            
+
             http_response_code(500);
             echo json_encode(['error' => 'Failed to create quiz: ' . $e->getMessage()]);
         }
-    }
+    
     ?>
