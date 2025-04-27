@@ -1,6 +1,6 @@
 Quiz Web App DB design
 
-users(Id,Name,BirthDate,Gender,Email,Password)
+users(Id,Name,BirthDate,Gender,Email,Password,roleId)
 
 category(Id,CategoryDesc)
 
@@ -15,4 +15,4 @@ Question_options(Id,OptionName,QuestionId,isCorrect)
 QuizAttempts(Id,UserId,QuizId,AttemptDate,FinalScore)
 
 Attempt_Answers(Id,AttemptId,OptionId)
-
+roles(Id,RoleName)
