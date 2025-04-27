@@ -1,0 +1,18 @@
+Quiz Web App DB design
+
+users(Id,Name,BirthDate,Gender,Email,Password)
+
+category(Id,CategoryDesc)
+
+QuestionType(Id,QuestionTypeDesc,NumOfPoints,timePerQuestion)
+
+Quiz(Id,QuizName,CategoryId,PassingScore,totalTime,OwnerId,DateAdded)
+
+Questions(Id,QuestionName,QuestionTypeId,QuizId)
+
+Question_options(Id,OptionName,QuestionId,isCorrect)
+
+QuizAttempts(Id,UserId,QuizId,AttemptDate,FinalScore)
+
+Attempt_Answers(Id,AttemptId,OptionId)
+
