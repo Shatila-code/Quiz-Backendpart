@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
 
             'message' => 'Question type created successfully',
-            
+
             'questionTypeId' => $pdo->lastInsertId()
         ]);
     } catch (PDOException $e) {
@@ -38,4 +38,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['error' => 'Failed to create question type: ' . $e->getMessage()]);
     }
 }
-?>
