@@ -29,6 +29,11 @@ try{
             'user'=>$user
         ]);
      }
+     else{
+
+        http_response_code(401);
+        echo json_encode(['error'=> 'Invalid email or password']);
+     }
 }
 
 
