@@ -15,4 +15,5 @@ Question_options(Id,OptionName,QuestionId,isCorrect)
 QuizAttempts(Id,UserId,QuizId,AttemptDate,FinalScore)
 
 Attempt_Answers(Id,AttemptId,OptionId)
+
 roles(Id,RoleName)

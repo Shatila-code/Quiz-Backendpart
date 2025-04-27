@@ -7,9 +7,9 @@ try{
     $user = "root";
     $pass = "";
  
-  $connection = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
    
-  $connection-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $pdo-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   echo "Connected successfully!";
  }
