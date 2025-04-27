@@ -28,9 +28,23 @@ try{
     }
    $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
 
+   $query = $pdo->prepare("insert into users(Name,Email,Password) Values(:name,:email,:password)");
+   $query->bindParam(":name",$name,PDO::PARAM_STR);
+   $query->bindParam(":email",$email,PDO::PARAM_STR);
+   $query->bindParam(":password",$hashedPassword,PDO::PARAM_STR);
+   $query->execute();
+
+   echo json_encode([
+
+    'message'=> 'user successfully registered :)'
+   ]);
 }
 
+catch(PDOException $e){
+    
+    http_response_code(500);
 
-catch{}
+    echo json_encode(['error '=>'registration failed:'. $e->getMessage()])
+}
 
 }
