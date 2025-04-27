@@ -9,8 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         echo json_encode(['error'=>'Email and password are required .']);
         exit;
      }
-}
-$email = $_POST['email'];
+     $email = $_POST['email'];
 $password = $_POST['password'];
 
 
@@ -42,4 +41,5 @@ catch(PDOException $e){
     http_response_code(500);
     echo json_encode(['error'=> 'login failed'. $e->getMessage()]);
 
+}
 }
