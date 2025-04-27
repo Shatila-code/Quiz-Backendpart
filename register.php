@@ -16,7 +16,19 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $email = $__POST['email'];
     $password = $_POST['password'];
 
-try{}
+try{
+    $query = $pdo->prepare("select * from users where Email = :email");
+    $query->bindParam(":email",$email,PDO::PARAM_STR);
+    $query->execute();
+
+    if($query->fetch(PDO::FETCH_ASSOC)){
+        http_response_code(400);
+        echo json_encode(["error  user already exits"]);
+        exit;
+    }
+
+    
+}
 
 
 catch{}
