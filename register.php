@@ -11,4 +11,14 @@ if($_SERVER['REQUEST_METHOD']==='POST')
         echo json_encode(["error please enter all the required fields and try again"]);
         exit;
     }
+
+    $name = $_POST['name'];
+    $email = $__POST['email'];
+    $password = $_POST['password'];
+
+try{}
+
+
+catch{}
+
 }
