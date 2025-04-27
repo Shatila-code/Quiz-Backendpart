@@ -37,10 +37,17 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
     $query = "UPDATE Questions SET" . implode(", ",$fields) . "WHERE Id = :questionId";
 
     try{
-        
+
+        $exec_query = $pdo->prepare($query);
+        $exec_query->execute($params);
+
+        echo json_encode(['message'=> 'Question updated successfully']);
+
     }
 
     catch(PDOException $e){
+        http_response_code(500);
+        echo json_encode(['error'=>'Failed to update question' .$e->getMessage() ]);
 
     }
 }
